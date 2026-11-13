@@ -1,1 +1,96 @@
 <!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work Experience</title>
+</head>
+<body>
+    <h1>Work Experience</h1>
+    <form action="/work_experience" method="post">
+        <label for="company">Company:</label>
+        <input type="text" id="company" name="company" required>
+        <br>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required>
+        <br>
+        <label for="start_month">Start Month:</label>
+        <select id="start_month" name="start_month" required>
+            <option value="">Select Month</option>
+            <option value="Jan">January</option>
+            <option value="Feb">February</option>
+            <option value="Mar">March</option>
+            <option value="Apr">April</option>
+            <option value="May">May</option>
+            <option value="Jun">June</option>
+            <option value="Jul">July</option>
+            <option value="Aug">August</option>
+            <option value="Sep">September</option>
+            <option value="Oct">October</option>
+            <option value="Nov">November</option>
+            <option value="Dec">December</option>
+        </select>
+        <br>
+        <label for="start_year">Start Year:</label>
+        <input type="number" id="start_year" name="start_year" min="1950" max="2023" required>
+        <br>
+        <label for="end_month">End Month:</label>
+        <select id="end_month" name="end_month">
+            <option value="">Select Month</option>
+            <option value="Jan">January</option>
+            <option value="Feb">February</option>
+            <option value="Mar">March</option>
+            <option value="Apr">April</option>
+            <option value="May">May</option>
+            <option value="Jun">June</option>
+            <option value="Jul">July</option>
+            <option value="Aug">August</option>
+            <option value="Sep">September</option>
+            <option value="Oct">October</option>
+            <option value="Nov">November</option>
+            <option	value="Dec">December</option>
+        </select>
+        <br>
+        <label for="end_year">End Year:</label>
+        <input type="number" id="end_year" name="end_year" min="1950">
+        <br>
+        <input type="checkbox" id="currently_working" name="currently_working">
+        <label for="currently_working">I currently work here</label>
+        <br>
+        <label for="bullets">Bullets:</label>
+        <br>
+        <input type="text" id="bullets" name="bullet1" placeholder="Bullet 1" required>
+        <br>
+        <input type="text" id="bullets" name="bullet2" placeholder="Bullet 2">
+        <br>
+        <input type="text" id="bullets" name="bullet3" placeholder="Bullet 3">
+        <br>
+        <input type="text" id="bullets" name="bullet4" placeholder="Bullet 4">
+        <br>
+        <input type="text" id="bullets" name="bullet5" placeholder="Bullet 5">
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+    <script>
+        // Get the current year
+        const currentYear = new Date().getFullYear();
+        
+        // Set the max attribute of the end_year input to the current year
+        document.getElementById('end_year').setAttribute('max', currentYear);
+
+        // Turn off input to endmonth and endyear if currently working is checked
+        const checkbox = document.getElementById('currently_working');
+        const endMonthInput = document.getElementById('end_month');
+        const endYearInput = document.getElementById('end_year');
+
+        checkbox.addEventListener('change', function() {
+            if (this.checked) {
+                endMonthInput.disabled = true;
+                endYearInput.disabled = true;
+            } else {
+                endMonthInput.disabled = false;
+                endYearInput.disabled = false;
+            }
+        });
+    </script>    
+</body>
+

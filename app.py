@@ -32,7 +32,38 @@ def get_title():
 
 @app.route('/work_experience', methods=['POST'])
 def get_work_experience():
-    pass
+    company = request.form['company']
+    position = request.form['position']
+    start_date = request.form['start_date']
+    end_date = request.form['end_date']
+    description = request.form['description']
+    bullets = request.form.getlist('bullets')
+    global work_experience
+    work_experience = {
+        'company': company,
+        'position': position,
+        'start_date': start_date,
+        'end_date': end_date,
+        'description': description
+    }
+    return render_template("buildresume_Education.html")
+
+@app.route('/contact_info', methods=['POST'])
+def get_contact_info():
+    email = request.form['email']
+    city = request.form['city']
+    state = request.form['state']
+    linkedin = request.form['linkedin']
+    phone = request.form['phone']
+    global contact_info
+    contact_info = {
+        'email': email,
+        'city': city,
+        'state': state,
+        'linkedin': linkedin,
+        'phone': phone
+    }
+    return render_template("buildresume_Projects.html")
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -143,6 +143,7 @@ class Resume:
                     self.city=None
                     self.state=None
                     self.linkedin=None
+                    self.phone=None
 
             def set_contact_info(self, email: str, city: str, state: str, linkedin: str):
                     self.email=email
@@ -155,6 +156,11 @@ class Resume:
                     print(f"City: {self.city}")
                     print(f"State: {self.state}")
                     print(f"LinkedIn: {self.linkedin}")
+                    print(f"Phone: {self.phone}")
+
+            def set_phone(self, phone:str):
+                  pass
+                    
 
     class Projects:
         
